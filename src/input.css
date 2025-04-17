@@ -2,7 +2,6 @@
 
 @import "tailwindcss";
 
-
 *{
     font-family: "Rubik", sans-serif;
 }
@@ -15,6 +14,7 @@
 }
 html{
     scroll-behavior: smooth;
+    min-width: 400px;
 }
 .swiper-pagination-bullet-active{
     background: #F53838;

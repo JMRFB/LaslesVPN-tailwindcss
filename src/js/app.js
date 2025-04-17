@@ -87,12 +87,12 @@ const swiper = new Swiper('.testimonialSwiper', {
 // Generate testimonial slides
 function generateTestimonials() {
     const swiperWrapper = document.querySelector('.swiper-wrapper');
-    
     testimonials.forEach(testimonial => {
         const slide = document.createElement('div');
         slide.className = 'swiper-slide';
         
         slide.innerHTML = `
+        <div data-aos="fade-left" data-aos-delay="150">
             <div class="p-8 border-2 border-gray-200 rounded-2xl hover:border-red-500 transition-all duration-75 hover:scale-[1.05]">
                 <div class="flex items-center justify-between mb-8">
                     <div class="flex items-center gap-4">
@@ -109,6 +109,7 @@ function generateTestimonials() {
                 </div>
                 <p class="text-gray-600">"${testimonial.comment}"</p>
             </div>
+        </div>
         `;
         
         swiperWrapper.appendChild(slide);
@@ -119,6 +120,7 @@ function generateTestimonials() {
 document.addEventListener('DOMContentLoaded', generateTestimonials);
 
  /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+ 
  var prevScrollpos = window.pageYOffset;
  window.onscroll = function() {
  var currentScrollPos = window.pageYOffset;
@@ -129,15 +131,34 @@ document.addEventListener('DOMContentLoaded', generateTestimonials);
  }
  prevScrollpos = currentScrollPos;
  }
- // when the navbar (or any element) is at the top of the screen
-     window.addEventListener("scroll", () => {
-     const navbar = document.getElementById("navbar");
 
-     if (window.scrollY === 0) {
-         navbar.classList.remove("shadow");
-     } else {
-         navbar.classList.add("shadow");
-         navbar.classList.add("duration-75");
-     }
+ // when the navbar (or any element) is at the top of the screen
+const sm_navbar = document.getElementById("sm_navbar");
+window.addEventListener("scroll", () => {
+const navbar = document.getElementById("navbar");
+const menu = document.getElementById("menu");
+
+if (window.scrollY === 0) {
+    navbar.classList.remove("shadow");
+
+} else {
+    navbar.classList.add("shadow");
+    navbar.classList.add("duration-75");
+    sm_navbar.style.display = "none";
+    close.style.display = "none";
+    menu.style.display = "block";
+}
 });
 
+// navigation button for small device
+const close = document.getElementById("close");
+menu.onclick = function() {
+    menu.style.display = "none";
+    close.style.display = "block";
+    sm_navbar.style.display = "block";
+};
+close.onclick = function() {
+    close.style.display = "none";
+    menu.style.display = "block";
+    sm_navbar.style.display = "none";
+};
