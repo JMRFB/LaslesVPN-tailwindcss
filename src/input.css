@@ -14,7 +14,7 @@
 }
 html{
     scroll-behavior: smooth;
-    min-width: 400px;
+    min-width: 360px;
 }
 .swiper-pagination-bullet-active{
     background: #F53838;
