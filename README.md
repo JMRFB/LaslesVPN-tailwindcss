@@ -2,7 +2,7 @@ Tailwind CSS
 
 this is just a practice for tailwind css
 
-i write my own code to copy the design
+i wrote my own code to copy the design
 
 this design is from Udemy Tutorial
 
